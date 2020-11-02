@@ -1,0 +1,2 @@
+# chikkar
+Japanese synonym library
