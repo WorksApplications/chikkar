@@ -272,6 +272,11 @@
       <artifactId>jdartsclone</artifactId>
       <version>1.2.0</version>
     </dependency>
+    <dependency>
+      <groupId>com.worksap.nlp</groupId>
+      <artifactId>sudachi</artifactId>
+      <version>0.4.4-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
   <url>https://github.com/WorksApplications/chikkar</url>
