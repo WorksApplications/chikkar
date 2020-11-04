@@ -13,7 +13,7 @@
     <dictionary.builder>com.worksap.nlp.chikkar.dictionary.DictionaryBuilder</dictionary.builder>
     <test.dict.source.directory>${project.basedir}/src/test/dict</test.dict.source.directory>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    <sonar.projectKey>com.worksap.nlp.chikkar</sonar.projectKey>
+    <sonar.projectKey>WorksApplications_chikkar</sonar.projectKey>
     <sonar.language>java</sonar.language>
     <sonar.organization>worksapplications</sonar.organization>
     <sonar.links.homepage>https://github.com/WorksApplications/chikkar</sonar.links.homepage>
