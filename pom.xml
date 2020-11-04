@@ -35,9 +35,6 @@
             <configuration>
               <source>${java.version}</source>
               <locale>en_US</locale>
-              <sourceFileExcludes>
-                <exclude>**/*Impl.java</exclude>
-              </sourceFileExcludes>
             </configuration>
             <executions>
               <execution>

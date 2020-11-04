@@ -23,22 +23,64 @@ import java.util.Optional;
 
 import com.worksap.nlp.chikkar.dictionary.Dictionary;
 
+/**
+ * A container of synonym dictionaries.
+ */
 public class Chikkar {
     private List<Dictionary> dictionaries = new ArrayList<>();
     private boolean enableVerb = false;
 
+    /**
+     * Enable verb and adjective synonyms.
+     * 
+     * After this method is called, {@link find} searches for synonyms for verbs and
+     * adjectives.
+     */
     public void enableVerb() {
         enableVerb = true;
     }
 
+    /**
+     * Add a synonym dictionary.
+     * 
+     * Adds a dictionary to be used for search. When searching, the dictionary added
+     * later takes precedence.
+     * 
+     * @param dictionary
+     *            a synonym dictionary
+     */
     public void addDictionary(Dictionary dictionary) {
         dictionaries.add(0, dictionary);
     }
 
+    /**
+     * Returns synonyms for the specified word.
+     * 
+     * If {@link enableVerb} is not called, only noun synonyms are returned.
+     * 
+     * @param word
+     *            keyword
+     * @return a list of synonyms
+     */
     public List<String> find(String word) {
         return find(word, null);
     }
 
+    /**
+     * Returns synonyms for the specified word.
+     * 
+     * If the tries in the dictionaries are enabled and {@code groupIds} is not
+     * {@code null}, use the synonym group IDs as keys. Otherwise, use {@code word}
+     * as a key.
+     *
+     * If {@link enableVerb} is not called, only noun synonyms are returned.
+     * 
+     * @param word
+     *            keyword
+     * @param groupIds
+     *            synonym group IDs
+     * @return a list of synonyms
+     */
     public List<String> find(String word, int[] groupIds) {
         for (Dictionary dictionary : dictionaries) {
             int[] gids = dictionary.lookup(word, groupIds);
