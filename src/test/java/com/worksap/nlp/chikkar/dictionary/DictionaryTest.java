@@ -76,7 +76,7 @@ public class DictionaryTest {
         assertThat(group.getId(), is(6));
 
         r = dict.getSynonymGroup(200);
-        assertThat(r.isEmpty(), is(true));
+        assertThat(r.isPresent(), is(false));
     }
 
     @Test

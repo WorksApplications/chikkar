@@ -19,6 +19,7 @@ package com.worksap.nlp.chikkar;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +37,7 @@ public class SynonymGroupTest {
         Flags flags = new Flags(false, true, 0, 0, 0);
         Synonym synomymA = new Synonym("aaa", new int[] { 1 }, flags, "");
         Synonym synomymB = new Synonym("bbb", new int[] { 2 }, flags, "");
-        group = new SynonymGroup(1, List.of(synomymA, synomymB));
+        group = new SynonymGroup(1, Arrays.asList(synomymA, synomymB));
     }
 
     @Test
