@@ -56,7 +56,7 @@ public class Chikkar {
 
     private void gatherHeadword(String word, int gid, Dictionary dictionary, List<String> headwords) {
         Optional<SynonymGroup> synonyms = dictionary.getSynonymGroup(gid);
-        if (synonyms.isEmpty()) {
+        if (!synonyms.isPresent()) {
             return;
         }
         if (synonyms.get().lookup(word).orElseThrow(IllegalStateException::new).hasAmbiguity()) {

@@ -86,7 +86,7 @@ public class DictionaryBuilder {
             int groupId = -1;
             while ((line = reader.readLine()) != null) {
                 lineno = reader.getLineNumber();
-                if (line.isBlank()) {
+                if (line.codePoints().allMatch(Character::isWhitespace)) {
                     if (block.isEmpty()) {
                         continue;
                     } else {
