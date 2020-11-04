@@ -39,7 +39,7 @@ public class SynonymFormatter extends SimpleMorphemeFormatter {
         chikkar.addDictionary(new Dictionary(systemDictPath, false));
 
         for (String path : settings.getStringList("userDict")) {
-            chikkar.addDictionary(new Dictionary(path, false));
+            chikkar.addDictionary(new Dictionary(path, true));
         }
 
         if (settings.getBoolean("enableVerb", false)) {
