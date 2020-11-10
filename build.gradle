@@ -1,0 +1,60 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'com.diffplug.spotless' version '5.7.0'
+    id 'org.sonarqube' version '3.0'
+    id 'jacoco'
+}
+
+group = 'com.workap.nlp'
+archivesBaseName = "chikkar"
+version = '0.1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.worksap.nlp:jdartsclone:1.2.0', 'com.worksap.nlp:sudachi:0.5.0'
+    testImplementation 'junit:junit:4.13.1', 'org.hamcrest:hamcrest:2.1'
+}
+
+['system', 'user', 'user2'].each { name ->
+    def taskName = "buildDict${name.capitalize()}"
+    task "${taskName}"(type: JavaExec) {
+        main = "com.worksap.nlp.chikkar.dictionary.DictionaryBuilder"
+        classpath = sourceSets.main.runtimeClasspath
+        args('-o', "build/resources/test/${name}.dic", '-d', "the ${name} dictionary for the unit tests", "src/test/dict/${name}.csv")
+        dependsOn processTestResources
+    }
+    test.dependsOn taskName
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+spotless {
+    java {
+        eclipse().configFile('.formatter/eclipse-formatter.xml')
+        removeUnusedImports()
+        licenseHeaderFile '.formatter/license-header'
+    }
+}
+
+jacocoTestReport {
+    dependsOn test
+}
