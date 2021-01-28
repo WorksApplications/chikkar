@@ -14,7 +14,7 @@ Chikkar is a library for using the Sudachi synonym dictionary.
 Before using chikkar, you need to create a binary format dictionary.
 
 ```
-$ java -cp sudachi-0.5.0.jar:jdartsclone-1.2.0.jar:javax.json-1.1.jar:chikkar-0.1.0.jar -o system_syn.dic synonyms.txt
+$ java -cp sudachi-0.5.0.jar:jdartsclone-1.2.0.jar:javax.json-1.1.jar:chikkar-0.1.0.jar com.worksap.nlp.chikkar.dictionary.DictionaryBuilder -o system_syn.dic synonyms.txt
 ```
 
 入力ファイルのフォーマットはSudachi 同義語辞書の[マニュアル](https://github.com/WorksApplications/SudachiDict/blob/develop/docs/synonyms.md) を参照してください。
