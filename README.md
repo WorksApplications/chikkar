@@ -1,6 +1,6 @@
 # chikkar
 
-![build](https://github.com/WorksApplications/chikkar/workflows/build/badge.svg)
+[![build](https://github.com/WorksApplications/chikkar/actions/workflows/build.yml/badge.svg)](https://github.com/WorksApplications/chikkar/actions/workflows/build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=WorksApplications_chikkar&metric=alert_status)](https://sonarcloud.io/dashboard?id=WorksApplications_chikkar)
 
 chikkar は [Sudachi 同義語辞書](https://github.com/WorksApplications/SudachiDict/)を利用するためのライブラリです。
